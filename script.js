@@ -4,11 +4,15 @@ function swapMarginalDigits(num) {
   console.log(parseInt(result));
 }
 
+// swapMarginalDigits(12345);
+
 // 88h
 function wrapByOne(num) {
   const result = '1'.concat(num, '1');
   console.log(parseInt(result));
 }
+
+// wrapByOne(555);
 
 // 332
 function findLagrangeNumbers(numStr) {
@@ -29,7 +33,7 @@ function findLagrangeNumbers(numStr) {
   console.log('This numbers were not found');
 }
 
-
+// findLagrangeNumbers(50);
 
 class Task {
   constructor(description, func) {
@@ -68,7 +72,8 @@ tasks.set(
     (params) => findLagrangeNumbers(...params.split(",")))
 );
 
-let number = prompt('Enter task number:');
+let number = prompt(`Enter task number:
+Available options: ${[...tasks.keys()]}`);
 task = tasks.get(number);
 
 if (task) {
