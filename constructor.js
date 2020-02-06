@@ -5,8 +5,15 @@ export default class Task {
   }
 
   run() {
-    let params = prompt(this.description);
-    this.func(params);
+    let input = prompt(this.description);
+    let params = input.split(",");
+
+    let intParams = params.map(value => +value);
+    intParams.filter(value => isNaN(value)).forEach(value => {
+      throw new Error("Invalid Parameters !");
+    });
+
+    this.func(intParams);
   }
 }
 
