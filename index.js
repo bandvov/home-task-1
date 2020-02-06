@@ -17,4 +17,8 @@ Available options: ${[...tasks.keys()]}`);
   }
 }
 
-start()
+try {
+  start();
+} catch (e) {
+  alert(e.message);
+}
