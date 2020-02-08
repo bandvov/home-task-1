@@ -3,15 +3,15 @@ import {tasks} from './constructor.js'
 
 tasks.set(
   '88v',
-  new Task('Swap the first and last digits of number n. Enter n:', (params) =>
-    swapMarginalDigits(...params)
+  new Task('Swap the first and last digits of number n. Enter n:', 
+    swapMarginalDigits
   )
 );
 
 tasks.set(
   '88h',
-  new Task('Add one at the beginning and the end of the number n. Enter n:', (params) =>
-    wrapByOne(...params)
+  new Task('Add one at the beginning and the end of the number n. Enter n:', 
+    wrapByOne
   ),
 );
 
@@ -21,7 +21,8 @@ tasks.set(
     "It is known that any natural number can be represented as a sum of not more than four " +
     "squares of natural numbers or, which is the same as the sum of four squares of non-negative integers (Langrange's " +
     "theorem). Given a natural number n. Find the non-negative: x, y, z, t, where n = x*x + y*y +z*z + t*t. Enter n:",
-    (params) => findLagrangeNumbers(...params))
+     findLagrangeNumbers
+  )
 );
 
 // 88v
