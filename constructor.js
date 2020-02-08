@@ -1,41 +1,40 @@
 export default class Task {
   constructor(description, func) {
-    this.description = description;
-    this.func = func;
+          this.description = description;
+          this.func = func;
   }
 
   run() {
+          let params = [];
 
-    let params = [];
-
-    if (this.func.length) {
-      let input = prompt(this.description);
-      if (input === null) return;
-      params = this.checkInput(input);
-    } else {
-      alert(this.description)
-    }
-
-    this.func(...params);
-
+          if (this.func.length) {
+                  const input = prompt(this.description);
+                  if (input === null) return;
+                  params = this.checkInput(input);
+          } else {
+                  alert(this.description);
+          }
+          const result = this.func(...params);
+          console.log(result);
   }
 
   checkInput(input) {
-    if (input !== '') {
-      const userInput = input.split(",")
-      const intParams = userInput.map(value => +value);
-      this.checkValue(intParams)
-      return intParams
-    } else {
-      alert('Input is empty');
-      this.run()
-    }
+          if (input !== '') {
+                  const userInput = input.split(',');
+                  const intParams = userInput.map(value => +value);
+                  this.checkValue(intParams);
+                  return intParams;
+          }
+          alert('Input is empty');
+          this.run();
   }
 
   checkValue(value) {
-    if (this.func.length !== value.length || value.some(el => isNaN(el))) {
-      throw new Error("Invalid Parameters !");
-    }
+          // eslint-disable-next-line no-restricted-globals
+          if (this.func.length !== value.length || value.some(el => isNaN(el))) {
+                  alert('Invalid Parameters !');
+                  this.run();
+          }
   }
 }
 
